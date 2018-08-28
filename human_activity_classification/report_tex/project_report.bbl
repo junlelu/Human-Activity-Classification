@@ -1,0 +1,50 @@
+\begin{thebibliography}{1}
+
+\bibitem{bayat2014study}
+Akram Bayat, Marc Pomplun, and Duc~A Tran.
+\newblock A study on human activity recognition using accelerometer data from
+  smartphones.
+\newblock {\em Procedia Computer Science}, 34:450--457, 2014.
+
+\bibitem{faraway2005extending}
+Julian~J Faraway.
+\newblock {\em Extending the linear model with R: generalized linear, mixed
+  effects and nonparametric regression models}.
+\newblock CRC press, 2005.
+
+\bibitem{hamalainen2011jerk}
+Wilhelmiina H{\"a}m{\"a}l{\"a}inen, Mikko J{\"a}rvinen, Paula Martiskainen, and
+  Jaakko Mononen.
+\newblock Jerk-based feature extraction for robust activity recognition from
+  acceleration data.
+\newblock In {\em Intelligent Systems Design and Applications (ISDA), 2011 11th
+  International Conference on}, pages 831--836. IEEE, 2011.
+
+\bibitem{he2008activity}
+Zhen-Yu He and Lian-Wen Jin.
+\newblock Activity recognition from acceleration data using ar model
+  representation and svm.
+\newblock In {\em Machine Learning and Cybernetics, 2008 International
+  Conference on}, volume~4, pages 2245--2250. IEEE, 2008.
+
+\bibitem{kwapisz2011activity}
+Jennifer~R Kwapisz, Gary~M Weiss, and Samuel~A Moore.
+\newblock Activity recognition using cell phone accelerometers.
+\newblock {\em ACM SigKDD Explorations Newsletter}, 12(2):74--82, 2011.
+
+\bibitem{lara2013survey}
+Oscar~D Lara and Miguel~A Labrador.
+\newblock A survey on human activity recognition using wearable sensors.
+\newblock {\em Communications Surveys \& Tutorials, IEEE}, 15(3):1192--1209,
+  2013.
+
+\bibitem{ortiz2015smartphone}
+Jorge Luis~Reyes Ortiz.
+\newblock {\em Smartphone-based human activity recognition}.
+\newblock Springer, 2015.
+
+\bibitem{wuhuman}
+Zhongyan Wu, Shutong Zhang, and Chenying Zhang.
+\newblock Human activity recognition using wearable devices sensor data.
+
+\end{thebibliography}
