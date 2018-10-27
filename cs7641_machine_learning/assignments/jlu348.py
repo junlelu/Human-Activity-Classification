@@ -30,6 +30,7 @@ if abalone:
     data_name = 'Diabete'
 else:
     file_path = './data_set/voice.csv'
+    savefig_path = './data_set2_graph/'
     csv_delimiter = ','
     data_name = 'Voice'
 '''
@@ -70,7 +71,7 @@ def getTrainTestSets(data,test_size,partition=True):
             for f in feature:
                 feature_vector.append(float(f))
             features.append(feature_vector)
-            if elem[-1] == 'male':
+            if elem[-1] == '0':
                 val = 0
             else:
                 val = 1
@@ -167,15 +168,16 @@ def KNN(X_train,X_test,Y_train,Y_test,k):
     test_score = model.score(X_test,Y_test)
     return cv_score,train_score,test_score
 
-def MLP(X_train,X_test,Y_train,Y_test,layers=10,neuron=10):
+def MLP(X_train,X_test,Y_train,Y_test,layers=2,neuron=17):
     layer_param = []
     for i in range(layers):
         layer_param.append(neuron)
-    model = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(layer_param), random_state=1)
+    model = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(layer_param), random_state=1, max_iter=5000)
     model.fit(X_train,Y_train) 
     cv_score = cross_val_score(model,X_train,Y_train,cv=cv_fold).mean()
     train_score = model.score(X_train,Y_train)
     test_score = model.score(X_test,Y_test)
+    print("{},{},{},{},{}".format(neuron,train_score,test_score,cv_score,model.n_iter_))
     return cv_score,train_score,test_score
 
 def SVM(X_train,X_test,Y_train,Y_test,kernel):
@@ -201,7 +203,7 @@ def callClassifier(X_train,X_test,Y_train,Y_test,var,method = 'decisionTree'):
     elif method == 'KNN':
         return KNN(X_train,X_test,Y_train,Y_test,var)
     elif method == 'MLP':
-        return MLP(X_train,X_test,Y_train,Y_test,layers=var,neuron=30) 
+        return MLP(X_train,X_test,Y_train,Y_test,layers=2,neuron=var) 
     elif method == 'SVM':
         return SVM(X_train,X_test,Y_train,Y_test,var)
     else:
@@ -341,7 +343,8 @@ def main():
     # 5 algorithms
     print('Info: Performing model complexity analysis!')
     methods = ['decisionTree','adaBoost','KNN','MLP','SVM']
-    hyper_parameters = {'decisionTree':100,'adaBoost':50,'KNN':100,'MLP':20,'SVM':None}
+    methods = ['MLP']
+    hyper_parameters = {'decisionTree':100,'adaBoost':50,'KNN':100,'MLP':100,'SVM':None}
     # quick graph format check
     #hyper_parameters = {'decisionTree':10,'adaBoost':10,'KNN':10,'MLP':2,'SVM':None}
     for method in methods:
@@ -353,7 +356,7 @@ def main():
     # learning curve
     param = {'depth':10,'ada_estimator':10,'k':10,'layers':20,'neuron':30}
 
-    learningCurve(features,target,test_size_percent,param)   
+    #learningCurve(features,target,test_size_percent,param)   
     print('Info: Performing learning curve analysis...Done!')
     # print info 
     method_to_title = {'decisionTree':'Decision Tree','adaBoost':'Adaptive Boosting', 'KNN':'K-nearest Neighbors', 'MLP':'Neural Network',
